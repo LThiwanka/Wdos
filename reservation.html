@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reservations</title>
+
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+   
+<!-- header section starts  -->
+
+<section class="header">
+
+   <div class="flex">
+      <a href="#home" class="logo"><b>Ocean Gate Hotel</b></a>
+      <div id="menu-btn" class="fas fa-bars"></div>
+   </div>
+
+   <div class="flex">
+      <div id="menu-btn" class="fas fa-bars"></div>
+   </div>
+
+
+
+
+</section>
+
+<!-- header section ends -->
+
+
+<!-- reservation section starts  -->
+
+<section class="reservation" id="reservation">
+
+   <form action="" method="post" id="room-reservation">
+      <h3>make your room reservation</h3>
+      <div class="flex">
+         <div class="box">
+            <p>Full Name <span>*</span></p>
+            <input type="text" name="fullname" class="input" required  id="room-reservation-fullname" />
+         </div>
+         <div class="box">
+            <p>Email Address <span>*</span></p>
+            <input type="text" name="email" class="input" required  id="room-reservation-email" />
+         </div>
+         <div class="box">
+            <p>Contact Number <span>*</span></p>
+            <input type="text" name="contactNumber" class="input" required  id="room-reservation-ContactNumber" />
+         </div>
+      </div>
+      <div class="flex">
+         <div class="box">
+            <p>Check in <span>*</span></p>
+            <input type="date" name="check_in" class="input" required id="room-reservation-checkin" onchange="dateChangeEvent()">
+         </div>
+         <div class="box">
+            <p>Check out <span>*</span></p>
+            <input type="date" name="check_out" class="input" required id="room-reservation-checkout" onchange="dateChangeEvent()">
+         </div>
+         <div class="box">
+            <p>Adults <span>*</span></p>
+            <select name="adults" class="input" required id="room-reservation-adults">
+               <option value="1">1 adult</option>
+               <option value="2">2 adults</option>
+               <option value="3">3 adults</option>
+               <option value="4">4 adults</option>
+               <option value="5">5 adults</option>
+               <option value="6">6 adults</option>
+            </select>
+         </div>
+         <div class="box">
+            <p>Childs </p>
+            <select name="childs" class="input" id="room-reservation-childs">
+               <option value="">0 child</option>
+               <option value="1">1 child</option>
+               <option value="2">2 childs</option>
+               <option value="3">3 childs</option>
+               <option value="4">4 childs</option>
+               <option value="5">5 childs</option>
+               <option value="6">6 childs</option>
+            </select>
+         </div>
+         <div class="box">
+            <p>Room Selection <span>*</span></p>
+            <select name="rooms" class="input" id="room-reservation-room"onchange="roomReservationPrice()">
+               <option value="1">Single</option>
+               <option value="2">Double</option>
+               <option value="3">Triple</option>
+               <option value="4">Premium Suite</option>
+               <option value="5">Presidential Suite</option>
+            </select>
+         </div>
+         <div class="box">
+            <p>Promo Code </p>
+            <input type="text" name="promocode" class="input"  id="room-reservation-promocode" />
+         </div>
+         <div class="box">
+            <p>Extra Requirements </p>
+            <input type="checkbox" id="extrareq1" name="extrareq[]" value="WiFi" class="extrareq" onclick="roomReservationPrice()">
+            <label for="extrareq1" class="typo"> WiFi</label>
+            <input type="checkbox" id="extrareq2" name="extrareq[]" value="Pool View" class="extrareq" onclick="roomReservationPrice()">
+            <label for="extrareq2" class="typo"> Pool View</label>
+            <input type="checkbox" id="extrareq3" name="extrareq[]" value="Garden View" class="extrareq" onclick="roomReservationPrice()">
+            <label for="extrareq3" class="typo"> Garden View</label>
+         </div>
+      </div>
+      <input type="submit" value="Book Now" name="check" class="btn">
+   </form>
+
+</section>
+
+<section class="room-reservation-info-wrapper hide-sections" id="room-reservation-info-wrapper">
+   <div class="room-reservation-info" id="room-reservation-info">
+   </div>
+</section>
+
+<section class="gallery" id="gallery">
+
+   <div class="swiper gallery-slider">
+      <div class="swiper-wrapper">
+         <img src="images/gallery-img-1.jpg" class="swiper-slide" alt="">
+         <img src="images/gallery-img-2.webp" class="swiper-slide" alt="">
+         <img src="images/gallery-img-3.webp" class="swiper-slide" alt="">
+         <img src="images/gallery-img-4.webp" class="swiper-slide" alt="">
+         <img src="images/gallery-img-5.webp" class="swiper-slide" alt="">
+         <img src="images/gallery-img-6.webp" class="swiper-slide" alt="">
+      </div>
+      <div class="swiper-pagination"></div>
+   </div>
+
+</section>
+
+<!-- gallery section ends -->
+
+<!-- Adventure section start-->
+
+<section class="reservation" id="reservation">
+
+   <form action="" method="post">
+      <h3>Adventure reservation</h3>
+      <div class="flex">
+         <div class="box">
+            <p>Date <span>*</span></p>
+            <input type="date" name="check_in" class="input" required>
+         </div>
+
+         <div class="box">
+            <p>Adults <span>*</span></p>
+            <select name="adults" class="input" required>
+               <option value="1">1 Adult</option>
+               <option value="2">2 Adults</option>
+               <option value="3">3 Adults</option>
+               <option value="4">4 Adults</option>
+               <option value="5">5 Adults</option>
+               <option value="6">6 Adults</option>
+            </select>
+         </div>
+         <div class="box">
+            <p>Childs <span>*</span></p>
+            <select name="childs" class="input" required>
+               <option value="-">0 Child</option>
+               <option value="1">1 Child</option>
+               <option value="2">2 Childs</option>
+               <option value="3">3 Childs</option>
+               <option value="4">4 Childs</option>
+               <option value="5">5 Childs</option>
+               <option value="6">6 Childs</option>
+            </select>
+         </div>
+         <div class="box">
+            <p>Adventure Selection <span>*</span></p>
+            <select name="rooms" class="input" required>
+               <option value="1">Camping</option>
+               <option value="2">Mount Climbing</option>
+               <option value="3">Sufing</option>
+            </select>
+         </div>
+
+         <div class="box">
+            <p>Location<span>*</span></p>
+            <select name="rooms" class="input" required>
+               <option value="1">Trinco</option>
+               <option value="2">Galle</option>
+               <option value="3">Negambo</option>
+            </select>
+         </div>
+      </div>
+      <input type="submit" value="Book Now" name="check" class="btn">
+
+      
+      
+   </form>
+
+</section>
+
+<!-- Adventure section end-->
+
+<!-- gallery section starts  -->
+
+<section class="gallery" id="gallery">
+
+   <div class="swiper gallery-slider">
+      <div class="swiper-wrapper">
+         <img src="images/pexels-eric-sanman-1365425.jpg" class="swiper-slide" alt="">
+         <img src="images/pexels-guy-kawasaki-1654498.jpg" class="swiper-slide" alt="">
+         <img src="images/pexels-kun-fotografi-1230302.jpg" class="swiper-slide" alt="">
+         <img src="images/pexels-vanessa-garcia-6324131.jpg" class="swiper-slide" alt="">
+      </div>
+      <div class="swiper-pagination"></div>
+   </div>
+
+</section>
+
+<!-- gallery section ends -->
+
+<!-- contact section starts  -->
+
+<section class="contact" id="contact">
+
+   <div class="row">
+
+      <form action="" method="post">
+         <h3>send us message</h3>
+         <input type="text" name="name" required maxlength="50" placeholder="Enter your name" class="box">
+         <input type="email" name="email" required maxlength="50" placeholder="Enter your email" class="box">
+         <input type="number" name="number" required maxlength="10" min="0" max="9999999999" placeholder="Enter your number" class="box">
+         <textarea name="msg" class="box" required maxlength="1000" placeholder="Enter your message" cols="30" rows="10"></textarea>
+         <input type="submit" value="send message" name="send" class="btn">
+      </form>
+
+</section>
+
+<!-- contact section ends -->
+
+
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+   <div class="box-container">
+
+   <div class="credit">&copy; copyright @ 2023 oceangate | all rights reseved!</div>
+
+</section>
+
+<!-- footer section ends -->
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="script.js"></script>
+
+</body>
+</html>
